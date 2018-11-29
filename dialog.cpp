@@ -34,6 +34,7 @@ void Dialog::onhrsChanges(int hrs)
 
 void Dialog::on_start_clicked()
 {
+    mthread->stop = false;
     mthread->start();
 }
 
