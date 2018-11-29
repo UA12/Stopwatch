@@ -14,6 +14,7 @@ void Mythread::run()
     int hrs=0;
     for (int i = 0; i++;)
     {
+        sleep(1);
         QMutex mutex;
         mutex.lock();
         if(this->stop) break;
