@@ -1,5 +1,6 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include "mythread.h"
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -8,6 +9,7 @@ Dialog::Dialog(QWidget *parent) :
     ui->setupUi(this);
 
     mthread=new Mythread(this);
+
     connect(mthread,SIGNAL(secChanges(int)), this, SLOT(onsecChanges(int)));
     connect(mthread,SIGNAL(minChanges(int)), this, SLOT(onminChanges(int)));
     connect(mthread,SIGNAL(hrsChanges(int)), this, SLOT(onhrsChanges(int)));
@@ -23,11 +25,11 @@ void Dialog::onsecChanges(int sec)
 }
 void Dialog::onminChanges(int min)
 {
- ui->secs->display(min);
+ ui->mins->display(min);
 }
 void Dialog::onhrsChanges(int hrs)
 {
- ui->secs->display(hrs);
+ ui->hours->display(hrs);
 }
 
 void Dialog::on_start_clicked()

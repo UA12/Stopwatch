@@ -7,12 +7,13 @@
 class Mythread : public QThread
 
 {
+    Q_OBJECT
 public:
     explicit Mythread(QObject *parent);
     void run();
     bool stop;
 
-    signals:
+   signals:
     void secChanges(int);
     void minChanges(int);
     void hrsChanges(int);

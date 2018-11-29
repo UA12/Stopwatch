@@ -1,5 +1,7 @@
 #include "mythread.h"
 #include <QtCore>
+#include <QThread>
+#include <QObject>
 
 Mythread::Mythread(QObject *parent):
     QThread(parent)
@@ -12,16 +14,19 @@ void Mythread::run()
     int hrs=0;
     for (int i = 0; i++;)
     {
+        QMutex mutex;
+        mutex.lock();
         if(this->stop) break;
-        if (i = 60) {
+        if (i == 60) {
         min++;
         i=0;
         }
 
-        if (min = 60) {
+        if (min == 60) {
             hrs++;
             min=0;
         }
+        mutex.unlock();
 
         emit secChanges(i);
         emit minChanges(min);
