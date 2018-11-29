@@ -12,7 +12,7 @@ void Mythread::run()
 
     int min=0;
     int hrs=0;
-    for (int i = 0; i++;)
+    for (int i = 0;; i++)
     {
         sleep(1);
         QMutex mutex;
